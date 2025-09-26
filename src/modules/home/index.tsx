@@ -25,6 +25,7 @@ export default function TodoHome() {
       <Tooltip>
         <TooltipTrigger asChild>
           <button
+            data-testid="logout-button"
             onClick={() => signOut()}
             title="logout"
             className="fixed top-2 right-2 items-center cursor-pointer"
@@ -40,7 +41,6 @@ export default function TodoHome() {
         onSubmit={(e) => {
           const target = e.target as HTMLFormElement;
           e.preventDefault();
-          console.log(new FormData(target).get("new-todo"));
           const payload: TodoAPI = {
             id: crypto.randomUUID(),
             title: String(new FormData(target).get("new-todo")),
@@ -55,6 +55,7 @@ export default function TodoHome() {
           name="new-todo"
           placeholder="Pending task"
           className="text-xl! py-8! px-6"
+          data-testid="todo-input"
         />
       </form>
 

@@ -10,7 +10,7 @@ setup("authenticate", async ({ page }) => {
     throw Error("email/password missing from node env");
   }
 
-  page.goto("/login");
+  await page.goto("/login");
   await page.getByRole("textbox", { name: "Email" }).click();
   await page.getByRole("textbox", { name: "Email" }).fill(email);
   await page.getByRole("textbox", { name: "Password" }).fill(password);
